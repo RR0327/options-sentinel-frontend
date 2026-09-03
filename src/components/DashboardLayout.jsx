@@ -37,11 +37,14 @@ export const DashboardLayout = ({ children, error, loading, accountData, activeT
       {/* Sidebar */}
       <aside className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
         <div className="flex items-center justify-between p-lg">
-          <div className="flex items-center gap-sm">
-            <ShieldCheck size={28} className="text-blue" />
+          <div 
+            className="flex items-center gap-sm cursor-pointer"
+            onClick={() => setActiveTab('Dashboard')}
+          >
+            <img src="/banner.png" alt="Options Sentinel Logo" style={{ height: '48px' }} className="object-contain" />
             <div className="flex flex-col">
               <span className="font-bold text-lg leading-none">OPTIONS SENTINEL</span>
-              <span className="text-xs text-secondary mt-1">Autonomous AI Options Trading</span>
+              <span className="text-xs text-secondary mt-1">Autonomous AI Options Trading System</span>
             </div>
           </div>
           <button className="md:hidden text-secondary" onClick={() => setIsSidebarOpen(false)}>

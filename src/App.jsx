@@ -23,10 +23,11 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
         const [dashboardRes, tradesRes, decisionsRes] = await Promise.all([
-          fetch('http://127.0.0.1:8000/api/dashboard'),
-          fetch('http://127.0.0.1:8000/api/trades'),
-          fetch('http://127.0.0.1:8000/api/decisions')
+          fetch(`${API_BASE_URL}/api/dashboard`),
+          fetch(`${API_BASE_URL}/api/trades`),
+          fetch(`${API_BASE_URL}/api/decisions`)
         ]);
         
         if (!dashboardRes.ok) throw new Error('Backend not available');
